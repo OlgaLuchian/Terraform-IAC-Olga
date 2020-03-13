@@ -86,13 +86,6 @@ provisioner "remote-exec" {
 
    
 
-
-
-
-
-
-
-
   tags = {
     Name = "HelloWorld"
   }
