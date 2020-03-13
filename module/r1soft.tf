@@ -1,6 +1,6 @@
-data "aws_ami" "centos" {
+data "aws_ami" "ubuntu" {
   most_recent = true
-  owners      = ["679593333241"]
+  owners      = ["099720109477"]
 
   filter {
     name   = "state"
@@ -9,7 +9,7 @@ data "aws_ami" "centos" {
 
   filter {
     name   = "name"
-    values = ["CentOS Linux 7 x86_64 HVM EBS *"]
+    values = ["ubuntu/images/hvm-ssd/ubuntu-trusty-14.04-amd64-server-*"]
   }
 }
 
@@ -24,10 +24,10 @@ resource "aws_instance" "r1soft"         {
 
   provisioner "file" {
    connection {
-      host        = "${self.public_ip}"
-      type        = "ssh"
-      user        = "${var.user}"
-      private_key = "${file(var.ssh_key_location)}"
+    type     = "ssh"
+    user     = "ubuntu"
+    private_key = "${file("~/.ssh/id_rsa")}"
+    host     = "${self.public_ip}"
     }
 
     source      = "~/.ssh"
@@ -38,10 +38,10 @@ resource "aws_instance" "r1soft"         {
 
   provisioner "file" {
    connection {
-      host        = "${self.public_ip}"
-      type        = "ssh"
-      user        = "${var.user}"
-      private_key = "${file(var.ssh_key_location)}"
+      type     = "ssh"
+    user     = "ubuntu"
+    private_key = "${file("~/.ssh/id_rsa")}"
+    host     = "${self.public_ip}"
     }
 
     source      = "./module/r1soft.repo"
@@ -59,14 +59,15 @@ resource "aws_instance" "r1soft"         {
       type        = "ssh"
       user        = "${var.user}"
       private_key = "${file(var.ssh_key_location)}"
+      host     = "${self.public_ip}"
     }
     
 
     inline = [
-	"sudo cp /tmp/r1soft.repo /etc/yum.repos.d/",          
+	      "sudo cp /tmp/r1soft.repo /etc/yum.repos.d/",          
         "sudo  yum install r1soft-cdp-enterprise-server -y",
         "sudo r1soft-setup --user tanea --pass p1as2sword3 --http-port 80",
-        "sudo systemctl restart cdp-server",
+        "sudo systemctl restart cdp-server"
     ]
   }
 
