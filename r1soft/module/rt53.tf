@@ -1,4 +1,4 @@
-resource "aws_route53_record" "r1soft"         {
+resource "aws_route53_record" "r1soft" {
   zone_id = "${var.zone_id}"
   name    = "backup.${var.domain}"
   type    = "A"

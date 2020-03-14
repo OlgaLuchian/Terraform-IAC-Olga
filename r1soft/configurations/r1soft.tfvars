@@ -1,5 +1,5 @@
 # Below code is used to set backend only
-s3_bucket                       	=	"my-tf-test-bucket-tatiana"
+s3_bucket                       	=	  "my-tf-test-bucket-tatiana"
 s3_folder_region                	=	"us-east-1"
 vpc_id		    	            	=	"vpc-0a03cd78b513f8932"
 zone_id			                    =	"Z2C2TTKT34Z4V4" 
