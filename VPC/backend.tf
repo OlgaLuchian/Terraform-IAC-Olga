@@ -1,9 +1,15 @@
+
 terraform {
-  backend "s3" {
-    bucket = "terraform-class-tatiana"
 
-    key = "tower/us-east-1/tools/oregon/tower.tfstate"
+backend "s3" {
 
-    region = "us-east-1"
+bucket = "terraform-class-tatiana"
+
+key = "tower/us-east-1/tools/virginia/tower.tfstate"
+
+region = "us-east-1"
+
   }
+
 }
+

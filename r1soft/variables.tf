@@ -7,3 +7,6 @@ variable "zone_id" {}
 variable "domain" {}
 variable "region" {}
 variable "route_53" {}
+
+variable "centos_ami_id" {}
+

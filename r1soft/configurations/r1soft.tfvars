@@ -7,10 +7,17 @@ domain			                    =	"tatianamoraru.com"
 base_domain			                =	"tatianamoraru.com"
 region 			                    = 	"us-east-1"
 s3_folder_project               	= "r1soft-project"  
+instance_type                       = "t2.micro"
+route_53                            = "tatianamoraru.com"
+ssh_key_location                    =   "~/.ssh/id_rsa.pub"
+user                                = "tanea"
+key_name                            = "terraform-key"
+centos_ami_id                   =   "ami-0fc61db8544a617ed"
 
 
 # Please do not change below
 environment                     	=   	"tower"
 s3_folder_type                  	=   	"tools"
 s3_tfstate_file                 	=   	"tower.tfstate"
+
 

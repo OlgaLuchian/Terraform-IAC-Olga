@@ -8,4 +8,5 @@ module "r1soft" {
   key_name         = "${var.key_name}"
   instance_type    = "${var.instance_type}"
   ssh_key_location = "${var.ssh_key_location}"
+  centos_ami_id    = "${var.centos_ami_id}"
 }
