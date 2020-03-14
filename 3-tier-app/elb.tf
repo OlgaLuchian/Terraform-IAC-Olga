@@ -1,7 +1,7 @@
 # Create a new load balancer
 resource "aws_elb" "bar" {
-  name               = "foobar-terraform-elb"
-  availability_zones = ["us-west-2a", "us-west-2b", "us-west-2c"]
+  name               = "wordpress"
+  availability_zones = ["us-east-1a", "us-east-1b", "us-east-1c"]
 
   access_logs {
     bucket        = "foo"
@@ -16,13 +16,6 @@ resource "aws_elb" "bar" {
     lb_protocol       = "http"
   }
 
-  listener {
-    instance_port      = 8000
-    instance_protocol  = "http"
-    lb_port            = 443
-    lb_protocol        = "https"
-    ssl_certificate_id = "arn:aws:iam::123456789012:server-certificate/certName"
-  }
 
   health_check {
     healthy_threshold   = 2
