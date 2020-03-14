@@ -20,10 +20,7 @@ resource "aws_security_group" "allow_tls" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  tags = {
-    Name = "allow_tls"
-  }
-}
+  
 
 tags = [
     {
@@ -37,4 +34,4 @@ tags = [
       propagate_at_launch = true
     },
   ]
-
+}
