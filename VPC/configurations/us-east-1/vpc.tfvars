@@ -1,6 +1,12 @@
 environment                     =   	"virginia"
 region                          =        "us-east-1"
 
+#Chose A-Z to create subnets
+az1                  =       "us-east-1a"
+az2                  =       "us-east-1b"
+az3                  =       "us-east-1c"
+
+
  #provite region for VPC
 
 # Below code is used to set backend only
