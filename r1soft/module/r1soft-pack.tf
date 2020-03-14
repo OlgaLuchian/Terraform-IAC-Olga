@@ -19,7 +19,7 @@ resource "aws_instance" "r1soft" {
   ami                         = "${var.ami_id}"
   key_name                    = "${var.key_name}"
   associate_public_ip_address = "true"
-  security_groups             = ["allow_tls"]
+  security_groups             = ["allow_ssh_and_r1soft"]
 
   provisioner "file" {
     connection {
