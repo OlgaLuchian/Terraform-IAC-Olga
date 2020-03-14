@@ -9,10 +9,10 @@ region 			                    = 	"us-east-1"
 s3_folder_project               	= "r1soft-project"  
 instance_type                       = "t2.micro"
 route_53                            = "tatianamoraru.com"
-ssh_key_location                    =   "~/.ssh/id_rsa.pub"
-user                                = "tanea"
-key_name                            = "terraform-key"
-centos_ami_id                   =   "ami-0fc61db8544a617ed"
+ssh_key_location                    =   "~/.ssh/id_rsa"
+user                                = "ec2-user"
+key_name                            = "test"
+ami_id                              =   "ami-0fc61db8544a617ed"
 
 
 # Please do not change below

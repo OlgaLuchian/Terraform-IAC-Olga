@@ -8,5 +8,5 @@ variable "domain" {}
 variable "region" {}
 variable "route_53" {}
 
-variable "centos_ami_id" {}
+variable "ami_id" {}
 

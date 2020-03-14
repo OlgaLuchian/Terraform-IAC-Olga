@@ -16,10 +16,10 @@
 resource "aws_instance" "r1soft" {
   depends_on                  = ["aws_key_pair.r1soft"]
   instance_type               = "${var.instance_type}"
-  ami                         = "${var.centos_ami_id}"
+  ami                         = "${var.ami_id}"
   key_name                    = "${var.key_name}"
   associate_public_ip_address = "true"
-  security_groups             = ["allow_ssh_and_r1soft"]
+  security_groups             = ["allow_tls"]
 
   provisioner "file" {
     connection {
@@ -41,8 +41,8 @@ resource "aws_instance" "r1soft" {
       private_key = "${file(var.ssh_key_location)}"
     }
 
-    source      = "./module/r1soft.repo"
-    destination = "/tmp/r1soft.repo"
+    source      = "./module/r1soft-repo.repo"
+    destination = "/tmp/r1soft-repo.repo"
   }
 
   provisioner "remote-exec" {
@@ -54,8 +54,8 @@ resource "aws_instance" "r1soft" {
     }
 
     inline = [
-      "sudo cp /tmp/r1soft.repo /etc/yum.repos.d/",
-      "sudo  apt-get install r1soft-cdp-enterprise-server -y",
+      "sudo cp /tmp/r1soft-repo.repo /etc/yum.repos.d/",
+      "sudo yum install r1soft-cdp-enterprise-server -y",
       "sudo r1soft-setup --user tanea --pass p1ssw2rd --http-port 80",
       "sudo systemctl restart cdp-server",
     ]

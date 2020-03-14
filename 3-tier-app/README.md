@@ -9,3 +9,4 @@
   cd repo/3-tier-app
   terraform init 
   terraform apply
+  

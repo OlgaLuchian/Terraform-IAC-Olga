@@ -7,4 +7,4 @@ variable "zone_id" {}
 variable "domain" {}
 variable "region" {}
 
-variable "centos_ami_id" {}
+variable "ami_id" {}
