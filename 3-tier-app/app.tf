@@ -9,7 +9,7 @@ module "wordpress" {
 
   image_id        = "${data.aws_ami.ubuntu.id}"
   instance_type   = "t2.micro"
-  security_groups = "${aws_security_group.allow_tls.id}"
+  security_groups = ["${aws_security_group.allow_tls.id}"]
 
  
 
